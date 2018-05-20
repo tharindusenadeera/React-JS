@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+
 var path = require('path');
 
 var DIST_DIR =  path.resolve(__dirname,'dist');
@@ -15,9 +15,16 @@ var config = {
     modules:{
         loaders:[
             {
-                test:{}
+                test: /\.js?/,
+                include:SRC_DIR,
+                loader:" babel-loader",
+                query: {
+                    presets:["react","es2015","stage-2"]
+                }
             }
         ]
     }
-}
+};
+
+module.exports = config;
 
